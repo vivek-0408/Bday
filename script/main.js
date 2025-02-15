@@ -1,12 +1,7 @@
 window.addEventListener('load', () => {
-    const container = document.querySelector('.container');
-    container.style.visibility = 'visible';
-  
-    // Function to animate the initial divs (1 to 5)
-    const initialAnimation = () => {
-      const tl = gsap.timeline();
-  
-         tl.to(".container", 0.6, {
+    const tl = gsap.timeline({paused: true});
+    
+    tl.to(".container", 0.6, {
         visibility: "visible"
     })
     .from(".one", 0.7, {
@@ -94,9 +89,10 @@ window.addEventListener('load', () => {
         },
         0.2
     );
-    };
+    tl.play();
+    });
   
-    initialAnimation();
+
   
     // Show "Turn on the Lights" button after initial content is displayed
     setTimeout(() => {
