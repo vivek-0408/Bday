@@ -1,6 +1,6 @@
 // Wait until the window is fully loaded
 window.addEventListener('load', () => {
-    const tl = gsap.timeline({paused: true});
+    const tl = gsap.timeline({paused: false});
     
     tl.to(".container", 0.6, {
         visibility: "visible"
