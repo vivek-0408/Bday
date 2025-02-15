@@ -1,4 +1,3 @@
-// Wait until the window is fully loaded
 window.addEventListener('load', () => {
     const tl = gsap.timeline({paused: false});
     
@@ -13,10 +12,31 @@ window.addEventListener('load', () => {
         opacity: 0,
         y: 10
     })
-    .to(".one", 0.7, { opacity: 0, y: 10 }, "+=3.5")
-    .to(".two", 0.7, { opacity: 0, y: 10 }, "-=1")
-    .from(".three", 0.7, { opacity: 0, y: 10 })
-    .to(".three", 0.7, { opacity: 0, y: 10 }, "+=3")
+    .to(".one",
+        0.7,
+        {
+            opacity: 0,
+            y: 10
+        },
+    "+=3.5")
+    .to(".two",
+        0.7,
+        {
+            opacity: 0,
+            y: 10
+        },
+    "-=1")
+    .from(".three", 0.7, {
+        opacity: 0,
+        y: 10
+    })
+    .to(".three",
+        0.7,
+        {
+            opacity: 0,
+            y: 10
+        },
+    "+=3")
     .from(".idea-1", 0.7, ideaTextTrans)
     .to(".idea-1", 0.7, ideaTextTransLeave, "+=2.5")
     .from(".idea-2", 0.7, ideaTextTrans)
@@ -31,34 +51,58 @@ window.addEventListener('load', () => {
     .to(".idea-3", 0.7, ideaTextTransLeave, "+=2.5")
     .from(".idea-4", 0.7, ideaTextTrans)
     .to(".idea-4", 0.7, ideaTextTransLeave, "+=2.5")
-    .from(".idea-5", 0.7, {
-        rotationX: 15,
-        rotationZ: -10,
-        skewY: "-5deg",
-        y: 50,
-        z: 10,
-        opacity: 0,
-    }, "+=1.5")
-    .to(".idea-5 span", 0.7, { rotation: 90, x: 8 }, "+=1.4")
-    .to(".idea-5", 0.7, { scale: 0.2, opacity: 0 }, "+=2")
-    .staggerFrom(".idea-6 span", 0.8, {
-        scale: 3,
-        opacity: 0,
-        rotation: 15,
-        ease: Expo.easeOut,
-    }, 0.2);
-
+    .from(
+        ".idea-5",
+        0.7, {
+            rotationX: 15,
+            rotationZ: -10,
+            skewY: "-5deg",
+            y: 50,
+            z: 10,
+            opacity: 0,
+        },
+        "+=1.5"
+    )
+    .to(
+        ".idea-5 span",
+        0.7, {
+            rotation: 90,
+            x: 8,
+        },
+        "+=1.4"
+    )
+    .to(
+        ".idea-5",
+        0.7, {
+            scale: 0.2,
+            opacity: 0,
+        },
+        "+=2"
+    )
+    .staggerFrom(
+        ".idea-6 span",
+        0.8, {
+            scale: 3,
+            opacity: 0,
+            rotation: 15,
+            ease: Expo.easeOut,
+        },
+        0.2
+    );
     tl.play();
+    });
+  
 
-    // Event listener for turning on the lights
-    const turnOnLightsBtn = document.getElementById('turn-on-lights');
+  
+    // Show "Turn on the Lights" button after initial content is displayed
+const turnOnLightsBtn = document.getElementById('turn-on-lights');
     turnOnLightsBtn.addEventListener('click', () => {
         document.body.style.backgroundColor = 'peachpuff'; // Change background color
         turnOnLightsBtn.style.opacity = 0; // Fade out the button
         showDecorateButton();
     });
 
-    // Show decoration button
+    // Button for Decoration
     function showDecorateButton() {
         const decorateBtn = document.createElement('button');
         decorateBtn.innerText = "Let's Decorate";
@@ -80,7 +124,7 @@ window.addEventListener('load', () => {
         });
     }
 
-    // Start background balloons animation
+    // Function to start background balloons
     function startBalloons() {
         const balloon1 = document.createElement('img');
         const balloon2 = document.createElement('img');
@@ -106,7 +150,7 @@ window.addEventListener('load', () => {
         });
     }
 
-    // Show the play music button
+    // Button for Playing Music
     function showPlayMusicButton() {
         const playMusicBtn = document.createElement('button');
         playMusicBtn.innerText = "Play Music";
@@ -122,7 +166,7 @@ window.addEventListener('load', () => {
         });
     }
 
-    // Show cake button
+    // Button for Cake
     function showCakeButton(music) {
         const cakeBtn = document.createElement('button');
         cakeBtn.innerText = "Let us cut the cake";
@@ -149,7 +193,7 @@ window.addEventListener('load', () => {
         });
     }
 
-    // Stop balloons and remove images
+    // Stop Balloons and Remove Images
     function stopBalloonsAndRemoveImages(music) {
         document.querySelectorAll('.balloon').forEach(balloon => balloon.remove());
         document.querySelector('.decoration-image')?.remove();
@@ -159,7 +203,7 @@ window.addEventListener('load', () => {
         showFinalTextbox();
     }
 
-    // Show final textbox with SVG circles
+    // Show Final Textbox with SVG Circles
     function showFinalTextbox() {
         const finalTextboxContainer = document.createElement('div');
         finalTextboxContainer.classList.add('final-textbox-container');
@@ -175,7 +219,7 @@ window.addEventListener('load', () => {
         finalMessage.innerText = 'Wishing you a fantastic year ahead! 🎉🎂';
         finalTextboxContainer.appendChild(finalMessage);
 
-        // Add SVG Circles Background
+        // Add SVG Circles Background (same as in class "eight")
         const svgCircle = document.createElement('svg');
         svgCircle.classList.add('svg-circle');
         finalTextboxContainer.appendChild(svgCircle);
@@ -183,7 +227,7 @@ window.addEventListener('load', () => {
         svgCircle.innerHTML = `<circle cx="50%" cy="50%" r="200" fill="none" stroke="#fff" stroke-width="2" />`;
     }
 
-    // Restart button function
+    // Restart Button to start everything again
     function addRestartButton() {
         const restartBtn = document.createElement('button');
         restartBtn.innerText = "Click Here if you want to start again";
@@ -199,4 +243,3 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         addRestartButton();
     }, 3000); // After 3 seconds, show restart button
-});
