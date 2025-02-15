@@ -243,4 +243,4 @@ const turnOnLightsBtn = document.getElementById('turn-on-lights');
     setTimeout(() => {
         addRestartButton();
     }, 3000); // After 3 seconds, show restart button
-});
+);
