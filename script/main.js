@@ -69,6 +69,7 @@ window.addEventListener('load', () => {
     // Event listener for turning on the lights
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
     turnOnLightsBtn.addEventListener('click', () => {
+        console.log('Button clicked');
         document.body.style.backgroundColor = 'peachpuff'; // Change background color
         turnOnLightsBtn.style.opacity = 0; // Fade out the button
         showDecorateButton();
