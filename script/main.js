@@ -1,5 +1,31 @@
 // Wait until the window is fully loaded
 window.addEventListener('load', () => {
+    
+    const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
+    const hbd = document.getElementsByClassName("wish-hbd")[0];
+
+    textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
+        .split("")
+        .join("</span><span>")}</span>`;
+
+    hbd.innerHTML = `<span>${hbd.innerHTML
+        .split("")
+        .join("</span><span>")}</span>`;
+
+    const ideaTextTrans = {
+        opacity: 0,
+        y: -20,
+        rotationX: 5,
+        skewX: "15deg"
+    }
+
+    const ideaTextTransLeave = {
+        opacity: 0,
+        y: 20,
+        rotationY: 5,
+        skewX: "-15deg"
+    }
+    
     const tl = gsap.timeline({paused: true});
     
     tl.to(".container", 0.6, {
