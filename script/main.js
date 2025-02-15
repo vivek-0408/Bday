@@ -67,6 +67,8 @@ window.addEventListener('load', () => {
     //tl.play();
 
     // Event listener for turning on the lights
+    
+    /*
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
     turnOnLightsBtn.addEventListener('click', () => {
         console.log('Button clicked');
@@ -74,6 +76,19 @@ window.addEventListener('load', () => {
         turnOnLightsBtn.style.opacity = 0; // Fade out the button
         showDecorateButton();
     });
+    */
+    const turnOnLightsBtn = document.getElementById('turn-on-lights');
+    console.log(turnOnLightsBtn); // Check if the button is found in the DOM
+
+if (turnOnLightsBtn) {
+    turnOnLightsBtn.addEventListener('click', () => {
+        document.body.style.backgroundColor = 'peachpuff'; // Change background color
+        turnOnLightsBtn.style.opacity = 0; // Fade out the button
+        showDecorateButton();
+    });
+} else {
+    console.log("Button not found!");
+}
 
     // Show decoration button
     function showDecorateButton() {
