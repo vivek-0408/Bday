@@ -1,53 +1,6 @@
 // Wait until the window is fully loaded
 window.addEventListener('load', () => {
-    Swal.fire({
-        title: 'Do you want to see what I made',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes',
-        cancelButtonText: 'Of course',
-    }).then((result) => {
-        if (result.isConfirmed) {
-           
-            animationTimeline();
-        } else {
-            animationTimeline();
-        }
-    });
-});
-
-const animationTimeline = () => {
-    // split chars that needs to be animated individually
-    const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
-    const hbd = document.getElementsByClassName("wish-hbd")[0];
-
-    textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
-        .split("")
-        .join("</span><span>")}</span>`;
-
-    hbd.innerHTML = `<span>${hbd.innerHTML
-        .split("")
-        .join("</span><span>")}</span>`;
-
-    const ideaTextTrans = {
-        opacity: 0,
-        y: -20,
-        rotationX: 5,
-        skewX: "15deg"
-    }
-
-    const ideaTextTransLeave = {
-        opacity: 0,
-        y: 20,
-        rotationY: 5,
-        skewX: "-15deg"
-    }
-
-    // timeline
-    const tl = new TimelineMax();
-
+    const tl = gsap.timeline({paused: false});
     
     tl.to(".container", 0.6, {
         visibility: "visible"
@@ -246,4 +199,4 @@ const animationTimeline = () => {
     setTimeout(() => {
         addRestartButton();
     }, 3000); // After 3 seconds, show restart button
-}
+});
