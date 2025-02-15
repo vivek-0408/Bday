@@ -1,6 +1,34 @@
 // Wait until the window is fully loaded
-window.addEventListener('load', () => {
-    const tl = gsap.timeline({paused: true});
+const animationTimeline = () => {
+    // split chars that needs to be animated individually
+    const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
+    const hbd = document.getElementsByClassName("wish-hbd")[0];
+
+    textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
+        .split("")
+        .join("</span><span>")}</span>`;
+
+    hbd.innerHTML = `<span>${hbd.innerHTML
+        .split("")
+        .join("</span><span>")}</span>`;
+
+    const ideaTextTrans = {
+        opacity: 0,
+        y: -20,
+        rotationX: 5,
+        skewX: "15deg"
+    }
+
+    const ideaTextTransLeave = {
+        opacity: 0,
+        y: 20,
+        rotationY: 5,
+        skewX: "-15deg"
+    }
+
+    // timeline
+    const tl = new TimelineMax();
+
     
     tl.to(".container", 0.6, {
         visibility: "visible"
@@ -199,4 +227,4 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         addRestartButton();
     }, 3000); // After 3 seconds, show restart button
-});
+}
