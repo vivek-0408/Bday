@@ -95,104 +95,152 @@ window.addEventListener('load', () => {
 
   
     // Show "Turn on the Lights" button after initial content is displayed
-    setTimeout(() => {
-      const turnOnLightsBtn = document.getElementById('turnOnLights');
-      turnOnLightsBtn.style.display = 'block';
-  
-      turnOnLightsBtn.addEventListener('click', () => {
-        document.body.style.backgroundColor = "#FAD02E";  // Peach color
-  
-        // Hide this button and show "Let's Decorate"
-        turnOnLightsBtn.style.display = 'none';
-        document.getElementById('letsDecorate').style.display = 'block';
-      });
-    }, 5000);
-  
-    // Handle "Let's Decorate" button
-    document.getElementById('letsDecorate').addEventListener('click', () => {
-      // Show the decoration image at the center of the screen
-      const decorationImg = document.getElementById('decorationImage');
-      decorationImg.style.display = 'block';
-      decorationImg.style.position = 'absolute';
-      decorationImg.style.top = '15%';
-      decorationImg.style.left = '50%';
-      decorationImg.style.transform = 'translateX(-50%)';
-  
-      // Start balloons
-      startBalloons();
+const turnOnLightsBtn = document.getElementById('turn-on-lights');
+    turnOnLightsBtn.addEventListener('click', () => {
+        document.body.style.backgroundColor = 'peachpuff'; // Change background color
+        turnOnLightsBtn.style.opacity = 0; // Fade out the button
+        showDecorateButton();
     });
-  
-    // Balloons flying animation
-    const startBalloons = () => {
-      const balloons = ['balloon1.svg', 'balloon2.svg', 'balloon3.svg'];
-  
-      setInterval(() => {
-        const balloon = document.createElement('img');
-        balloon.src = balloons[Math.floor(Math.random() * balloons.length)];
-        balloon.style.position = 'absolute';
-        balloon.style.left = `${Math.random() * 100}%`;
-        balloon.style.bottom = '-100px';
-        document.body.appendChild(balloon);
-  
-        gsap.to(balloon, 5, {
-          bottom: '100%',
-          repeat: -1,
-          yoyo: true
+
+    // Button for Decoration
+    function showDecorateButton() {
+        const decorateBtn = document.createElement('button');
+        decorateBtn.innerText = "Let's Decorate";
+        decorateBtn.classList.add('button');
+        document.body.appendChild(decorateBtn);
+
+        decorateBtn.addEventListener('click', () => {
+            // Show decoration image
+            const decorationImage = document.createElement('img');
+            decorationImage.src = 'decoration.png';
+            decorationImage.classList.add('decoration-image');
+            document.body.appendChild(decorationImage);
+
+            // Start background balloons
+            startBalloons();
+
+            decorateBtn.style.opacity = 0; // Fade out the button
+            showPlayMusicButton();
         });
-      }, 1000);
-    };
-  
-    // Show "Play Music" button
+    }
+
+    // Function to start background balloons
+    function startBalloons() {
+        const balloon1 = document.createElement('img');
+        const balloon2 = document.createElement('img');
+        const balloon3 = document.createElement('img');
+        balloon1.src = 'balloon1.svg';
+        balloon2.src = 'balloon2.svg';
+        balloon3.src = 'balloon3.svg';
+
+        balloon1.classList.add('balloon');
+        balloon2.classList.add('balloon');
+        balloon3.classList.add('balloon');
+
+        document.body.appendChild(balloon1);
+        document.body.appendChild(balloon2);
+        document.body.appendChild(balloon3);
+
+        // Animation loop for flying balloons
+        gsap.to([balloon1, balloon2, balloon3], {
+            y: -1500,
+            repeat: -1,
+            duration: 8,
+            stagger: 1
+        });
+    }
+
+    // Button for Playing Music
+    function showPlayMusicButton() {
+        const playMusicBtn = document.createElement('button');
+        playMusicBtn.innerText = "Play Music";
+        playMusicBtn.classList.add('button');
+        document.body.appendChild(playMusicBtn);
+
+        playMusicBtn.addEventListener('click', () => {
+            const music = new Audio('song.mp3');
+            music.loop = true;
+            music.play();
+            playMusicBtn.style.opacity = 0;
+            showCakeButton(music);
+        });
+    }
+
+    // Button for Cake
+    function showCakeButton(music) {
+        const cakeBtn = document.createElement('button');
+        cakeBtn.innerText = "Let us cut the cake";
+        cakeBtn.classList.add('button');
+        document.body.appendChild(cakeBtn);
+
+        cakeBtn.addEventListener('click', () => {
+            // Show cake image
+            const cakeImage = document.createElement('img');
+            cakeImage.src = 'cake.png';
+            cakeImage.classList.add('cake-image');
+            document.body.appendChild(cakeImage);
+
+            // Position cake image
+            cakeImage.style.position = 'absolute';
+            cakeImage.style.left = '50%';
+            cakeImage.style.transform = 'translateX(-50%)';
+            cakeImage.style.bottom = '20%';
+
+            cakeBtn.style.opacity = 0;
+            setTimeout(() => {
+                stopBalloonsAndRemoveImages(music);
+            }, 7000); // Wait for 7 seconds before moving to next step
+        });
+    }
+
+    // Stop Balloons and Remove Images
+    function stopBalloonsAndRemoveImages(music) {
+        document.querySelectorAll('.balloon').forEach(balloon => balloon.remove());
+        document.querySelector('.decoration-image')?.remove();
+        document.querySelector('.cake-image')?.remove();
+
+        music.pause(); // Stop the music
+        showFinalTextbox();
+    }
+
+    // Show Final Textbox with SVG Circles
+    function showFinalTextbox() {
+        const finalTextboxContainer = document.createElement('div');
+        finalTextboxContainer.classList.add('final-textbox-container');
+        document.body.appendChild(finalTextboxContainer);
+
+        const finalHeading = document.createElement('h2');
+        finalHeading.classList.add('final-heading');
+        finalHeading.innerText = 'Happy Birthday to You!';
+        finalTextboxContainer.appendChild(finalHeading);
+
+        const finalMessage = document.createElement('p');
+        finalMessage.classList.add('final-message');
+        finalMessage.innerText = 'Wishing you a fantastic year ahead! 🎉🎂';
+        finalTextboxContainer.appendChild(finalMessage);
+
+        // Add SVG Circles Background (same as in class "eight")
+        const svgCircle = document.createElement('svg');
+        svgCircle.classList.add('svg-circle');
+        finalTextboxContainer.appendChild(svgCircle);
+        
+        svgCircle.innerHTML = `<circle cx="50%" cy="50%" r="200" fill="none" stroke="#fff" stroke-width="2" />`;
+    }
+
+    // Restart Button to start everything again
+    function addRestartButton() {
+        const restartBtn = document.createElement('button');
+        restartBtn.innerText = "Click Here if you want to start again";
+        restartBtn.classList.add('button');
+        document.body.appendChild(restartBtn);
+
+        restartBtn.addEventListener('click', () => {
+            location.reload(); // Reload the page to restart the flow
+        });
+    }
+
+    // Add Restart Button after the final message appears
     setTimeout(() => {
-      document.getElementById('playMusic').style.display = 'block';
-    }, 10000);
-  
-    // Handle "Play Music" button
-    document.getElementById('playMusic').addEventListener('click', () => {
-      const song = document.querySelector('.song');
-      song.play();
-  
-      document.getElementById('playMusic').style.display = 'none';
-  
-      // Show "Let us cut the cake" button
-      document.getElementById('cakeButton').style.display = 'block';
-    });
-  
-    // Handle "Let us cut the cake" button
-    document.getElementById('cakeButton').addEventListener('click', () => {
-      // Show the cake image
-      const cakeImg = document.getElementById('cakeImage');
-      cakeImg.style.display = 'block';
-      cakeImg.style.position = 'absolute';
-      cakeImg.style.bottom = '20%';
-      cakeImg.style.left = '50%';
-      cakeImg.style.transform = 'translateX(-50%)';
-    });
-  
-    // Final "Happy Birthday" message with typewriter effect
-    setTimeout(() => {
-      showFinalMessage();
-      document.getElementById('restartButton').style.display = 'block';
-    }, 17000);
-  
-    const showFinalMessage = () => {
-      const finalTextbox = document.getElementById('finalTextbox');
-      finalTextbox.style.display = 'block';
-  
-      const message = document.getElementById('finalMessage');
-      const text = "Wishing you a fabulous year ahead filled with joy!";
-      let i = 0;
-      message.innerText = '';
-      const interval = setInterval(() => {
-        message.innerText += text[i];
-        i++;
-        if (i === text.length) clearInterval(interval);
-      }, 100);
-    };
-  
-    // Handle "Click Here if you want to start again" button
-    document.getElementById('restartButton').addEventListener('click', () => {
-      location.reload();
-    });
-  });
-  
+        addRestartButton();
+    }, 3000); // After 3 seconds, show restart button
+});
