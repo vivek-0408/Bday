@@ -79,6 +79,7 @@ window.addEventListener('load', () => {
     */
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
     console.log(turnOnLightsBtn); // Check if the button is found in the DOM
+    console.log("Hello World");
 
 if (turnOnLightsBtn) {
     turnOnLightsBtn.addEventListener('click', () => {
