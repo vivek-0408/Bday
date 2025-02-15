@@ -49,12 +49,39 @@ button:focus {
   position: absolute;
 }
 
-.eight svg {
-  position: absolute;
-  opacity: 0;
-  width: 25px;
-  z-index: -1;
+.circle-svg {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    animation: glow 1.5s infinite alternate;
 }
+
+.glowing-circle {
+    fill: none;
+    stroke: #ff69b4; /* Light pink color */
+    stroke-width: 5;
+    animation: glowing 1.5s ease-in-out infinite alternate;
+}
+
+/* Glowing animation */
+@keyframes glowing {
+    0% {
+        stroke: #ff69b4;
+        stroke-width: 5;
+        opacity: 0.7;
+    }
+    100% {
+        stroke: #ff1493;
+        stroke-width: 8;
+        opacity: 1;
+    }
+}
+
+.eight {
+    position: relative;
+    z-index: 0;
+}
+
 
 #finalTextbox {
   width: 80%;
