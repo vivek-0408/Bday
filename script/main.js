@@ -1,4 +1,23 @@
 // Wait until the window is fully loaded
+window.addEventListener('load', () => {
+    Swal.fire({
+        title: 'Do you want to see what I made',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'Of course',
+    }).then((result) => {
+        if (result.isConfirmed) {
+           
+            animationTimeline();
+        } else {
+            animationTimeline();
+        }
+    });
+});
+
 const animationTimeline = () => {
     // split chars that needs to be animated individually
     const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
