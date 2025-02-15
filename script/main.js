@@ -63,7 +63,18 @@ window.addEventListener('load', () => {
         rotation: 15,
         ease: Expo.easeOut,
     }, 0.2)
-    .to('#turn-on-lights', 0.5, {
+     .staggerTo(
+        ".idea-6 span",
+        0.8, {
+            scale: 3,
+            opacity: 0,
+            rotation: -15,
+            ease: Expo.easeOut,
+        },
+        0.2,
+        "+=1.5"
+    );
+    /*.to('#turn-on-lights', 0.5, {
         opacity: 1,  // Make sure the button is visible
         delay: 1,  // Delay the button appearance a bit after other animations
         onComplete: () => {
@@ -73,13 +84,13 @@ window.addEventListener('load', () => {
                 showDecorateButton(); // Call the next action
             });
         }
-    });
+    });*/
     console.log("SO completed");
     //tl.play();
 
     // Event listener for turning on the lights
     
-    /*
+    
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
     turnOnLightsBtn.addEventListener('click', () => {
         console.log('Button clicked');
@@ -87,7 +98,7 @@ window.addEventListener('load', () => {
         turnOnLightsBtn.style.opacity = 0; // Fade out the button
         showDecorateButton();
     });
-    
+   /* 
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
     console.log(turnOnLightsBtn); // Check if the button is found in the DOM
     console.log("Hello World");
@@ -104,6 +115,7 @@ if (turnOnLightsBtn) {
 */
     // Show decoration button
     function showDecorateButton() {
+        console.log("showDecorateButton called!");
         const decorateBtn = document.createElement('button');
         decorateBtn.innerText = "Let's Decorate";
         decorateBtn.classList.add('button');
