@@ -92,6 +92,7 @@ window.addEventListener('load', () => {
     
     
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
+    console.log("getelement");
     turnOnLightsBtn.addEventListener('click', () => {
         console.log('Button clicked');
         document.body.style.backgroundColor = 'peachpuff'; // Change background color
