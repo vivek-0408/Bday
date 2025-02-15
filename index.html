@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Party</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Divs 1 to 5 for initial content -->
+    <div class="one">
+      <div class="textbox">Message goes here</div>
+    </div>
+    <div class="two">
+      <div class="textbox">Next message goes here</div>
+    </div>
+    <div class="three">
+      <div class="textbox">Another message goes here</div>
+    </div>
+    <div class="four">
+      <div class="text-box">
+        <p>More message goes here</p>
+        <button class="fake-btn">Next</button>
+      </div>
+    </div>
+    <div class="five">
+      <p>SO is being printed here</p>
+    </div>
+
+    <!-- Buttons will appear dynamically here -->
+    <div class="buttons-container">
+      <button id="turnOnLights" style="display: none;">Turn on the Lights</button>
+      <button id="letsDecorate" style="display: none;">Let's Decorate</button>
+      <button id="playMusic" style="display: none;">Play Music</button>
+      <button id="cakeButton" style="display: none;">Let us cut the cake</button>
+      <button id="restartButton" style="display: none;">Click Here if you want to start again</button>
+    </div>
+
+    <!-- Hidden content: Glowing circles, images, and final text box -->
+    <div class="eight">
+      <!-- Glowing circles content here (will be animated in JS) -->
+    </div>
+    <div class="nine">
+      <div id="finalTextbox" class="final-textbox" style="display: none;">
+        <h1>Happy Birthday to You</h1>
+        <p id="finalMessage">Your message will appear here.</p>
+      </div>
+    </div>
+
+    <!-- Cake and decoration images (initially hidden) -->
+    <img id="decorationImage" src="decoration.png" alt="Decoration" style="display: none;">
+    <img id="cakeImage" src="cake.png" alt="Cake" style="display: none;">
+    
+    <!-- Music -->
+    <audio class="song" loop>
+      <source src="your-song.mp3" type="audio/mp3">
+    </audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
