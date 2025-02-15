@@ -63,7 +63,7 @@ window.addEventListener('load', () => {
         rotation: 15,
         ease: Expo.easeOut,
     }, 0.2);
-
+    console.log("SO completed");
     //tl.play();
 
     // Event listener for turning on the lights
