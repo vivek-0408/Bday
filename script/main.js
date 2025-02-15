@@ -64,7 +64,7 @@ window.addEventListener('load', () => {
         ease: Expo.easeOut,
     }, 0.2);
 
-    tl.play();
+    //tl.play();
 
     // Event listener for turning on the lights
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
@@ -215,4 +215,5 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         addRestartButton();
     }, 3000); // After 3 seconds, show restart button
+    tl.play();
 });
