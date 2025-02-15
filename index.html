@@ -49,13 +49,26 @@
         </div>
 
     <!-- Buttons will appear dynamically here -->
-    <div class="buttons-container">
-      <button id="turnOnLights" style="display: none;">Turn on the Lights</button>
-      <button id="letsDecorate" style="display: none;">Let's Decorate</button>
-      <button id="playMusic" style="display: none;">Play Music</button>
-      <button id="cakeButton" style="display: none;">Let us cut the cake</button>
-      <button id="restartButton" style="display: none;">Click Me to start again</button>
-    </div>
+     <div class="turn-on-lights-btn">
+            <button id="turnOnLights">Turn on the Lights</button>
+        </div>
+
+        <!-- Decoration Button and Decoration Image -->
+        <div class="decoration-container">
+            <button id="decorateBtn">Let's Decorate</button>
+            <img src="./img/decoration.png" id="decorationImage" alt="Decoration">
+        </div>
+
+        <!-- Music Button -->
+        <div class="music-btn-container">
+            <button id="musicBtn">Play Music</button>
+        </div>
+
+        <!-- Cake Button -->
+        <div class="cake-btn-container">
+            <button id="cakeBtn">Let us cut the cake</button>
+            <img src="./img/cake.jpg" id="cakeImage"  alt="Cake">
+        </div>
 
     <!-- Hidden content: Glowing circles, images, and final text box -->
    <div class="eight">
@@ -93,10 +106,6 @@
         <p id="finalMessage">Enjoy your day Have fun</p>
       </div>
     </div>
-
-    <!-- Cake and decoration images (initially hidden) -->
-    <img id="decorationImage" src="./img/decoration.png" alt="Decoration" style="display: none;">
-    <img id="cakeImage" src="./img/cake.jpg" alt="Cake" style="display: none;">
     
     <!-- Music -->
     <audio class="song" loop>
