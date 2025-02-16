@@ -128,7 +128,7 @@ button:focus {
     border: none;
     border-radius: 5px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);*/
-    background-color: #04AA6D; /* Green */
+  background-color: #04AA6D; /* Green */
   border: none;
   color: white;
   opacity: 0; 
@@ -138,6 +138,10 @@ button:focus {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+.decoration-container.visible {
+    opacity: 1; /* Make it visible */
+    visibility: visible;
 }
 
 /* Music Button */
