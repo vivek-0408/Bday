@@ -93,9 +93,9 @@ button:focus {
     border-radius: 5px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
-.turn-on-lights-btn.visible {
+/*.turn-on-lights-btn.visible {
     opacity: 1; /* Make it visible */
-}
+}*/
 /* Decoration Button */
 .decoration-container {
     position: absolute;
