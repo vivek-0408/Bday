@@ -76,6 +76,7 @@ window.addEventListener('load', () => {
     );
 
    // Inside the tl timeline after the last animation (idea-6 span animations)
+    const turnOnLightsBtn = document.getElementById("turn-on-lights");
     tl.to(".turn-on-lights-btn", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=1"); // Show the button after animations
     turnOnLightsBtn.addEventListener('click', () => {
     // Change the screen background color to peach
