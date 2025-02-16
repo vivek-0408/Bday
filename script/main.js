@@ -79,6 +79,7 @@ window.addEventListener('load', () => {
         opacity: 1,
         y: 0,
         onComplete: () => {
+            console.log("yayayaya");
             document.querySelector(".turn-on-lights-btn").addEventListener("click", () => {
                 // Change background color to peach
                 document.body.style.backgroundColor = "#ffcc99"; 
