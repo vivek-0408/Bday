@@ -83,7 +83,7 @@ window.addEventListener('load', () => {
         opacity: 1,  // Make sure the button is visible
         delay: 1,  // Delay the button appearance a bit after other animations
         onComplete: () => {
-            console.log("INSIDDE");
+            console.log("INSIDE");
             document.getElementById('turn-on-lights').addEventListener('click', () => {
                 document.body.style.backgroundColor = 'peachpuff';
                 gsap.to('#turn-on-lights', 0.5, { opacity: 0 });  // Fade out the button
