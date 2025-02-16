@@ -138,7 +138,7 @@ const playMusicBtn = document.getElementById("musicBtn");
 const audioElement = document.getElementById("bdsong"); // Assuming an <audio> element is in HTML
 
 // Show "Play Music" button after decoration appears
-tl.to(".music-btn-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=0.5");
+/*tl.to(".music-btn-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=0.5");
 
 // Add pause and wait for "Play Music" button click
 tl.add(() => {
@@ -162,7 +162,38 @@ tl.add(() => {
     });
 
     tl.pause(); // Pause timeline until button is clicked
+});*/
+
+
+tl.add(() => {
+    // Show the Play Music button after some part of the animation
+    playMusicBtn.addEventListener("click", function playMusicClickHandler() {
+        console.log("Play Music button clicked");
+
+        // Remove the event listener after the first click to prevent it from triggering again
+        playMusicBtn.removeEventListener("click", playMusicClickHandler);
+
+        // Hide the button using GSAP
+        gsap.to(playMusicBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
+
+        // Check if the audio element is loaded and ready to play
+        if (audioElement.readyState >= 3) {
+            audioElement.play().then(() => {
+                console.log("Music started playing");
+            }).catch((error) => {
+                console.error("Error playing music:", error);
+            });
+        } else {
+            console.log("Audio is not ready to play.");
+        }
+
+        // Resume the timeline after music is played
+        tl.resume();
+    });
+
+    tl.pause(); // Pause timeline until button is clicked
 });
+
 
 const cakeBtn = document.getElementById("cakeBtn");
 const cakeImage = document.getElementById("cakeImage");
