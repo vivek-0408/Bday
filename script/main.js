@@ -17,6 +17,13 @@ window.addEventListener('load', () => {
     }
     
     const tl = gsap.timeline({paused: true});
+
+    let audio = document.getElementById("music");
+audio.play().then(() => {
+    console.log("Music started playing");
+}).catch((error) => {
+    console.error("Error playing music:", error);
+});
     
     tl.to(".container", 0.6, {
         visibility: "visible"
