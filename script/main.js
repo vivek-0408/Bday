@@ -73,7 +73,7 @@ window.addEventListener('load', () => {
         },
         0.2,
         "+=1.5"
-    );
+    )
     .to('#turn-on-lights', 0.5, {
         opacity: 1,  // Make sure the button is visible
         delay: 1,  // Delay the button appearance a bit after other animations
