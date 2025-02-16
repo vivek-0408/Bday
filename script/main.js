@@ -77,31 +77,76 @@ window.addEventListener('load', () => {
 
    // Inside the tl timeline after the last animation (idea-6 span animations)
     const turnOnLightsBtn = document.getElementById("turn-on-lights");
+    const decorateBtn = document.getElementById("decorateBtn");
+const decorationImage = document.getElementById("decorationImage");
+    
     tl.to(".turn-on-lights-btn", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=1"); // Show the button after animations
-    turnOnLightsBtn.addEventListener('click', () => {
+    
+    /*turnOnLightsBtn.addEventListener('click', () => {
     // Change the screen background color to peach
         console.log("buttonClicked");
     gsap.to(document.body, 1, { backgroundColor: "#ffcc99", ease: "power2.inOut" });
 
     // Hide the button after activation
     gsap.to(turnOnLightsBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
+});*/
+
+tl.add(() => {
+  turnOnLightsBtn.addEventListener('click', () => {
+    // After click: Hide the button
+      console.log("Lights button clicked");
+    gsap.to(turnOnLightsBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
+
+    // Change the background to peach
+    gsap.to(document.body, 1, { backgroundColor: "#ffcc99", ease: "power2.inOut" });
+
+    // Continue the timeline after the click
+    tl.resume();
+  });
+});
+// Inside the timeline, after the lights button click (after the peach background change)
+// Show the "Decorate" button after a short delay
+tl.to(".decoration-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=0.5"); // Show the "Decorate" button
+
+// Pause the timeline until the "Decorate" button is clicked
+tl.add(() => {
+  decorateBtn.addEventListener('click', () => {
+      console.log("Decoration Button clicked");
+    // After the button is clicked: Hide the button
+    gsap.to(decorateBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
+
+    // Show the decoration image
+    gsap.to("#decorationImage", 0.7, { opacity: 1, visibility: "visible", ease: "power2.inOut" });
+
+    // Continue the timeline after the button is clicked
+    tl.resume();
+  });
 });
 
+// Continue with the next steps of the timeline (to be handled later)
+
     // Select the decoration button and image
-const decorateBtn = document.getElementById("decorateBtn");
-const decorationImage = document.getElementById("decorationImage");
+
 
 // Inside the tl timeline, after the lights button interaction (after changing the background)
-tl.to(".decoration-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=1"); // Show the "Decorate" button
+/*tl.to(".decoration-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=1"); // Show the "Decorate" button
 
 // Decorate Button functionality
+decorateBtn.addEventListener('click', () => {
+    console.log("buttonClicked");
+    // Hide the "Decorate" button after click
+    tl.to(".turn-on-lights-btn", 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" })
+  .to(document.body, 1, { backgroundColor: "#ffcc99", ease: "power2.inOut" })  // Change background color
+  .to(".decoration-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=1"); // Show the Decorate button
+
+// Add click event listener for the Decorate button
 decorateBtn.addEventListener('click', () => {
     // Hide the "Decorate" button after click
     gsap.to(decorateBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
 
     // Show the decoration image
     gsap.to(decorationImage, 1, { opacity: 1, visibility: "visible", ease: "power2.inOut" });
-});
+});*/
 
     /*
     .to('#turn-on-lights', 0.5, {
