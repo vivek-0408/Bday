@@ -91,7 +91,7 @@ window.addEventListener('load', () => {
     //tl.play();
 
     // Event listener for turning on the lights
-    
+    tl.play();
     
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
     gsap.to(turnOnLightsBtn, { opacity: 1, duration: 1 });
@@ -260,5 +260,5 @@ if (turnOnLightsBtn) {
     setTimeout(() => {
         addRestartButton();
     }, 3000); // After 3 seconds, show restart button
-    tl.play();
+    //tl.play();
 });
