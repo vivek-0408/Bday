@@ -166,28 +166,34 @@ tl.add(() => {
 
 
 tl.add(() => {
-    // Show the Play Music button after some part of the animation
     playMusicBtn.addEventListener("click", function playMusicClickHandler() {
         console.log("Play Music button clicked");
 
-        // Remove the event listener after the first click to prevent it from triggering again
+        // Remove the event listener after first click
         playMusicBtn.removeEventListener("click", playMusicClickHandler);
 
-        // Hide the button using GSAP
+        // Hide the button
         gsap.to(playMusicBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
 
-        // Check if the audio element is loaded and ready to play
+        // Add listener for 'canplaythrough' event to ensure audio is ready
+        audioElement.addEventListener('canplaythrough', function () {
+            audioElement.play().then(() => {
+                console.log("Music started playing");
+            }).catch((error) => {
+                console.error("Error playing music:", error);
+            });
+        });
+
+        // If it's already ready, play it immediately
         if (audioElement.readyState >= 3) {
             audioElement.play().then(() => {
                 console.log("Music started playing");
             }).catch((error) => {
                 console.error("Error playing music:", error);
             });
-        } else {
-            console.log("Audio is not ready to play.");
         }
 
-        // Resume the timeline after music is played
+        // Resume the timeline after the click
         tl.resume();
     });
 
