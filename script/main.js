@@ -77,7 +77,13 @@ window.addEventListener('load', () => {
 
    // Inside the tl timeline after the last animation (idea-6 span animations)
     tl.to(".turn-on-lights-btn", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=1"); // Show the button after animations
+    turnOnLightsBtn.addEventListener('click', () => {
+    // Change the screen background color to peach
+    gsap.to(document.body, 1, { backgroundColor: "#ffcc99", ease: "power2.inOut" });
 
+    // Hide the button after activation
+    gsap.to(turnOnLightsBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
+});
     /*
     .to('#turn-on-lights', 0.5, {
         opacity: 1,  // Make sure the button is visible
