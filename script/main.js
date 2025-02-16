@@ -143,7 +143,7 @@ tl.to(".music-btn-container", 0.5, { opacity: 1, visibility: "visible", ease: "p
 // Add pause and wait for "Play Music" button click
 tl.add(() => {
     playMusicBtn.addEventListener("click", function playMusicClickHandler() {
-        console.log("Play Music button click");
+        console.log("Play Music button clicked");
 
         // Remove event listener after first click
         playMusicBtn.removeEventListener("click", playMusicClickHandler);
