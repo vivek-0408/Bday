@@ -74,6 +74,19 @@ window.addEventListener('load', () => {
         0.2,
         "+=1.5"
     );
+
+    tl.to(".turn-on-lights-btn", 0.6, {
+        opacity: 1,
+        y: 0,
+        onComplete: () => {
+            document.querySelector(".turn-on-lights-btn").addEventListener("click", () => {
+                // Change background color to peach
+                document.body.style.backgroundColor = "#ffcc99"; 
+                // Hide the button
+                gsap.to(".turn-on-lights-btn", 0.5, { opacity: 0 });
+            });
+        }
+    }, "+=2"); // Delay this action by 2 seconds after the previous animation
     /*
     .to('#turn-on-lights', 0.5, {
         opacity: 1,  // Make sure the button is visible
@@ -92,7 +105,7 @@ window.addEventListener('load', () => {
 
     // Event listener for turning on the lights
     tl.play();
-    const turnOnLightsBtn = document.getElementById("turn-on-lights");
+    /*const turnOnLightsBtn = document.getElementById("turn-on-lights");
     turnOnLightsBtn.addEventListener("click", () => {
         // Change background to peach
         document.body.style.backgroundColor = "#FFDAB9";  // Peach color
@@ -101,7 +114,7 @@ window.addEventListener('load', () => {
 
         // Step 2: Show "Let's Decorate" button
         //showDecorateButton();
-    });
+    });*/
  
     /*   
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
