@@ -85,7 +85,7 @@ window.addEventListener('load', () => {
             });
         }
     });
-    console.log("SO completeddd");
+    console.log("SO not completeddd");
     //tl.play();
 
     // Event listener for turning on the lights
