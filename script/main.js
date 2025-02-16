@@ -143,7 +143,7 @@ const audioElement = document.getElementById("bdsong"); // Assuming an <audio> e
 // Add pause and wait for "Play Music" button click
 tl.add(() => {
     playMusicBtn.addEventListener("click", function playMusicClickHandler() {
-        console.log("Play Music button clicked");
+        console.log("Play Music button click");
 
         // Remove event listener after first click
         playMusicBtn.removeEventListener("click", playMusicClickHandler);
