@@ -163,6 +163,32 @@ tl.add(() => {
     tl.pause(); // Pause timeline until button is clicked
 });
 
+const cakeBtn = document.getElementById("cakeBtn");
+const cakeImage = document.getElementById("cakeImage");
+
+// Show "Let's Cut the Cake" button after music starts playing
+tl.to(".cake-btn-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=0.5");
+
+// Add pause and wait for "Let's Cut the Cake" button click
+tl.add(() => {
+    cakeBtn.addEventListener("click", function cakeClickHandler() {
+        console.log("Cake button clicked");
+
+        // Remove event listener after first click
+        cakeBtn.removeEventListener("click", cakeClickHandler);
+
+        // Hide the button
+        gsap.to(cakeBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
+
+        // Show the cake image
+        gsap.to(cakeImage, 0.7, { opacity: 1, visibility: "visible", ease: "power2.inOut" });
+
+        // Resume timeline
+        tl.resume();
+    });
+
+    tl.pause(); // Pause timeline until button is clicked
+});
 
 // Continue with the next steps of the timeline (to be handled later)
 
