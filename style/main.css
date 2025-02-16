@@ -202,8 +202,8 @@ button:focus {
 
 /* Restart Button */
 .restart-btn-container {
-    position: absolute;
-    bottom: 10%;
+    /*position: absolute;
+    bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
@@ -215,7 +215,17 @@ button:focus {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);*/
+     background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  opacity: 0; 
+  visibility: hidden;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 /* Peach background color */
