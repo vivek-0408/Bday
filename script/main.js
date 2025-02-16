@@ -92,35 +92,47 @@ const decorationImage = document.getElementById("decorationImage");
 });*/
 
 tl.add(() => {
-  turnOnLightsBtn.addEventListener('click', () => {
-    // After click: Hide the button
-      console.log("Lights button clicked");
-    gsap.to(turnOnLightsBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
+  turnOnLightsBtn.addEventListener("click", function lightsClickHandler() {
+        console.log("Lights button clicked");
 
-    // Change the background to peach
-    gsap.to(document.body, 1, { backgroundColor: "#ffcc99", ease: "power2.inOut" });
+        // Remove the event listener after first click
+        turnOnLightsBtn.removeEventListener("click", lightsClickHandler);
 
-    // Continue the timeline after the click
-    tl.resume();
+        // Hide the button
+        gsap.to(turnOnLightsBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
+
+        // Change background to peach
+        gsap.to(document.body, 1, { backgroundColor: "#ffcc99", ease: "power2.inOut" });
+
+        // Resume timeline
+        tl.resume();
   });
+    tl.pause();
 });
+    
 // Inside the timeline, after the lights button click (after the peach background change)
 // Show the "Decorate" button after a short delay
 tl.to(".decoration-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=0.5"); // Show the "Decorate" button
 
 // Pause the timeline until the "Decorate" button is clicked
 tl.add(() => {
-  decorateBtn.addEventListener('click', () => {
-      console.log("Decoration Button clicked");
-    // After the button is clicked: Hide the button
-    gsap.to(decorateBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
+  decorateBtn.addEventListener("click", function decorateClickHandler() {
+        console.log("Decoration Button clicked");
 
-    // Show the decoration image
-    gsap.to("#decorationImage", 0.7, { opacity: 1, visibility: "visible", ease: "power2.inOut" });
+        // Remove the event listener after first click
+        decorateBtn.removeEventListener("click", decorateClickHandler);
 
-    // Continue the timeline after the button is clicked
-    tl.resume();
-  });
+        // Hide the button
+        gsap.to(decorateBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
+
+        // Show the decoration image
+        gsap.to("#decorationImage", 0.7, { opacity: 1, visibility: "visible", ease: "power2.inOut" });
+
+        // Resume timeline
+        tl.resume();
+    });
+
+    tl.pause(); // Pause timeline until button is clicked
 });
 
 // Continue with the next steps of the timeline (to be handled later)
