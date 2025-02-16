@@ -80,7 +80,7 @@ window.addEventListener('load', () => {
     tl.to(".turn-on-lights-btn", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=1"); // Show the button after animations
     turnOnLightsBtn.addEventListener('click', () => {
     // Change the screen background color to peach
-        console.log("Clicked");
+        console.log("buttonClicked");
     gsap.to(document.body, 1, { backgroundColor: "#ffcc99", ease: "power2.inOut" });
 
     // Hide the button after activation
