@@ -138,8 +138,8 @@ const playMusicBtn = document.getElementById("musicBtn");
 const audioElement = document.getElementById("bdsong"); // Assuming an <audio> element is in HTML
 
 // Show "Play Music" button after decoration appears
-/*tl.to(".music-btn-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=0.5");
-
+tl.to(".music-btn-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=0.5");
+/*
 // Add pause and wait for "Play Music" button click
 tl.add(() => {
     playMusicBtn.addEventListener("click", function playMusicClickHandler() {
