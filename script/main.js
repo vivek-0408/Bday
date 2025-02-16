@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
     
     const tl = gsap.timeline({paused: true});
 
-    let audio = document.getElementById("music");
+    let audio = document.getElementById("bdsong");
 audio.play().then(() => {
     console.log("Music started playing");
 }).catch((error) => {
