@@ -92,7 +92,18 @@ window.addEventListener('load', () => {
 
     // Event listener for turning on the lights
     tl.play();
-    
+    const turnOnLightsBtn = document.getElementById("turn-on-lights");
+    turnOnLightsBtn.addEventListener("click", () => {
+        // Change background to peach
+        document.body.style.backgroundColor = "#FFDAB9";  // Peach color
+        // Hide the button after click
+        turnOnLightsBtn.style.display = "none";
+
+        // Step 2: Show "Let's Decorate" button
+        //showDecorateButton();
+    });
+ 
+    /*   
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
     gsap.to(turnOnLightsBtn, { opacity: 1, duration: 1 });
     console.log("getelement");
@@ -103,7 +114,8 @@ window.addEventListener('load', () => {
         showDecorateButton();
     });
     console.log("i am there for youu");
-   /* 
+   
+    
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
     console.log(turnOnLightsBtn); // Check if the button is found in the DOM
     console.log("Hello World");
@@ -117,7 +129,8 @@ if (turnOnLightsBtn) {
 } else {
     console.log("Button not found!");
 }
-*/
+
+    
     // Show decoration button
     function showDecorateButton() {
         console.log("showDecorateButton called!");
@@ -261,4 +274,5 @@ if (turnOnLightsBtn) {
         addRestartButton();
     }, 3000); // After 3 seconds, show restart button
     //tl.play();
+    */
 });
