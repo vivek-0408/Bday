@@ -86,6 +86,23 @@ window.addEventListener('load', () => {
     // Hide the button after activation
     gsap.to(turnOnLightsBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
 });
+
+    // Select the decoration button and image
+const decorateBtn = document.getElementById("decorateBtn");
+const decorationImage = document.getElementById("decorationImage");
+
+// Inside the tl timeline, after the lights button interaction (after changing the background)
+tl.to(".decoration-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=1"); // Show the "Decorate" button
+
+// Decorate Button functionality
+decorateBtn.addEventListener('click', () => {
+    // Hide the "Decorate" button after click
+    gsap.to(decorateBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
+
+    // Show the decoration image
+    gsap.to(decorationImage, 1, { opacity: 1, visibility: "visible", ease: "power2.inOut" });
+});
+
     /*
     .to('#turn-on-lights', 0.5, {
         opacity: 1,  // Make sure the button is visible
