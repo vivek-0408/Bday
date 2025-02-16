@@ -90,7 +90,7 @@ window.addEventListener('load', () => {
 
     // Event listener for turning on the lights
     
-    
+    turnOnLightsBtn.style.opacity = 1;
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
     console.log("getelement");
     turnOnLightsBtn.addEventListener('click', () => {
