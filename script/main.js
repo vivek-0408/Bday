@@ -74,7 +74,7 @@ window.addEventListener('load', () => {
         0.2,
         "+=1.5"
     );
-    /*.to('#turn-on-lights', 0.5, {
+    .to('#turn-on-lights', 0.5, {
         opacity: 1,  // Make sure the button is visible
         delay: 1,  // Delay the button appearance a bit after other animations
         onComplete: () => {
@@ -84,13 +84,13 @@ window.addEventListener('load', () => {
                 showDecorateButton(); // Call the next action
             });
         }
-    });*/
+    });
     console.log("SO completeddd");
     //tl.play();
 
     // Event listener for turning on the lights
     
-    
+    /*
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
     turnOnLightsBtn.classList.add('visible');
     console.log("getelement");
@@ -99,7 +99,7 @@ window.addEventListener('load', () => {
         document.body.style.backgroundColor = 'peachpuff'; // Change background color
         turnOnLightsBtn.style.opacity = 0; // Fade out the button
         showDecorateButton();
-    });
+    });*/
     console.log("i am there for youu");
    /* 
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
