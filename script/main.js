@@ -91,7 +91,7 @@ const decorationImage = document.getElementById("decorationImage");
     
     /*turnOnLightsBtn.addEventListener('click', () => {
     // Change the screen background color to peach
-        console.log("buttonClick");
+        console.log("buttonClicked");
     gsap.to(document.body, 1, { backgroundColor: "#ffcc99", ease: "power2.inOut" });
 
     // Hide the button after activation
