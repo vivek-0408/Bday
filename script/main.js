@@ -134,6 +134,35 @@ tl.add(() => {
 
     tl.pause(); // Pause timeline until button is clicked
 });
+const playMusicBtn = document.getElementById("playMusicBtn");
+const audioElement = document.getElementById("backgroundMusic"); // Assuming an <audio> element is in HTML
+
+// Show "Play Music" button after decoration appears
+tl.to(".play-music-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=0.5");
+
+// Add pause and wait for "Play Music" button click
+tl.add(() => {
+    playMusicBtn.addEventListener("click", function playMusicClickHandler() {
+        console.log("Play Music button clicked");
+
+        // Remove event listener after first click
+        playMusicBtn.removeEventListener("click", playMusicClickHandler);
+
+        // Hide the button
+        gsap.to(playMusicBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
+
+        // Play background music
+        if (audioElement) {
+            audioElement.play();
+        }
+
+        // Resume timeline
+        tl.resume();
+    });
+
+    tl.pause(); // Pause timeline until button is clicked
+});
+
 
 // Continue with the next steps of the timeline (to be handled later)
 
