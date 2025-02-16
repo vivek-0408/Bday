@@ -99,6 +99,7 @@ window.addEventListener('load', () => {
         turnOnLightsBtn.style.opacity = 0; // Fade out the button
         showDecorateButton();
     });
+    console.log("i am here");
    /* 
     const turnOnLightsBtn = document.getElementById('turn-on-lights');
     console.log(turnOnLightsBtn); // Check if the button is found in the DOM
