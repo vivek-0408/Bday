@@ -87,7 +87,7 @@ window.addEventListener('load', () => {
                 gsap.to(".turn-on-lights-btn", 0.5, { opacity: 0 });
             });
         }
-    }, "+=2"); // Delay this action by 2 seconds after the previous animation
+    }); // Delay this action by 2 seconds after the previous animation
     /*
     .to('#turn-on-lights', 0.5, {
         opacity: 1,  // Make sure the button is visible
@@ -105,6 +105,7 @@ window.addEventListener('load', () => {
     //tl.play();
 
     // Event listener for turning on the lights
+    console.log("Timeline starting")
     tl.play();
     /*const turnOnLightsBtn = document.getElementById("turn-on-lights");
     turnOnLightsBtn.addEventListener("click", () => {
