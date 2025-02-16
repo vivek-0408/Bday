@@ -152,10 +152,11 @@ tl.add(() => {
         gsap.to(playMusicBtn, 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" });
 
         // Play background music
-        if (audioElement) {
-            audioElement.play();
-        }
-
+        audioElement.play().then(() => {
+            console.log("Music started playing");
+        }).catch(error => {
+            console.error("Error playing music:", error);
+        });
         // Resume timeline
         tl.resume();
     });
