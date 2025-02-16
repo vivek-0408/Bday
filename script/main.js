@@ -233,7 +233,7 @@ tl.add(() => {
 // Decorate Button functionality
 decorateBtn.addEventListener('click', () => {
     console.log("buttonClicked");
-    // Hide the "Decorate" button after click
+    // Hide the "Decorate" button after clicking
     tl.to(".turn-on-lights-btn", 0.5, { opacity: 0, visibility: "hidden", ease: "power2.inOut" })
   .to(document.body, 1, { backgroundColor: "#ffcc99", ease: "power2.inOut" })  // Change background color
   .to(".decoration-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=1"); // Show the Decorate button
