@@ -134,8 +134,8 @@ tl.add(() => {
 
     tl.pause(); // Pause timeline until button is clicked
 });
-const playMusicBtn = document.getElementById("playMusicBtn");
-const audioElement = document.getElementById("backgroundMusic"); // Assuming an <audio> element is in HTML
+const playMusicBtn = document.getElementById("musicBtn");
+const audioElement = document.getElementById("bdsong"); // Assuming an <audio> element is in HTML
 
 // Show "Play Music" button after decoration appears
 tl.to(".play-music-container", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=0.5");
