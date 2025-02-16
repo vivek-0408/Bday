@@ -75,19 +75,9 @@ window.addEventListener('load', () => {
         "+=1.5"
     );
 
-    tl.to(".turn-on-lights-btn", 0.6, {
-        opacity: 1,
-        y: 0,
-        onComplete: () => {
-            console.log("yayayaya");
-            document.querySelector(".turn-on-lights-btn").addEventListener("click", () => {
-                // Change background color to peach
-                document.body.style.backgroundColor = "#ffcc99"; 
-                // Hide the button
-                gsap.to(".turn-on-lights-btn", 0.5, { opacity: 0 });
-            });
-        }
-    }); // Delay this action by 2 seconds after the previous animation
+   // Inside the tl timeline after the last animation (idea-6 span animations)
+    tl.to(".turn-on-lights-btn", 0.5, { opacity: 1, visibility: "visible", ease: "power2.inOut" }, "+=1"); // Show the button after animations
+
     /*
     .to('#turn-on-lights', 0.5, {
         opacity: 1,  // Make sure the button is visible
