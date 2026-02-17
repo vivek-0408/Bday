@@ -14,10 +14,7 @@ window.addEventListener('load', () => {
         skewX: "-15deg"
     };
 
-    const tl = gsap.timeline({
-        paused: true,
-        onComplete: showLightsButton   // ✅ FIX
-    });
+    const tl = gsap.timeline({ paused: true });
 
     let audio = document.getElementById("bdsong");
     audio.play().catch(() => {});
@@ -64,21 +61,20 @@ window.addEventListener('load', () => {
           opacity: 0,
           rotation: -15,
           ease: "expo.out",
-      }, 0.2, "+=1.5");
+      }, 0.2, "+=1.5")
+
+      /* ✅ CORRECT PLACE: PART OF TIMELINE */
+      .to(".turn-on-lights-btn", 0.6, {
+          opacity: 1,
+          visibility: "visible"
+      });
 
     tl.play();
 
-    // ✅ Properly called AFTER timeline finishes
-    function showLightsButton() {
-        const btn = document.querySelector(".turn-on-lights-btn");
-        btn.classList.add("visible");
-        btn.querySelector("button").innerText = "Turn on the Lights (Click Me)";
-    }
-
+    // Click handler (simple, clean)
     document.getElementById("turn-on-lights").addEventListener("click", () => {
         document.body.classList.add("peach-background");
-        document.querySelector(".turn-on-lights-btn")
-            .classList.remove("visible");
+        document.querySelector(".turn-on-lights-btn").style.display = "none";
     });
 
 });
